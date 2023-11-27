@@ -1,11 +1,15 @@
 
-var c = document.getElementById("test-canvas");
+
+var c = document.getElementById("display");
 var ctx = c.getContext("2d");
-var x = 0;
-ctx.beginPath();
-ctx.moveTo(0, 0);
-ctx.lineTo(20, 0);
-ctx.lineTo(20, 40)
-ctx.lineTo(0, 40)
-ctx.lineTo(0, 0)
-ctx.stroke();
+function drawPlayer(x, y) {
+    ctx.strokeStyle = "white";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + 20, y);
+    ctx.lineTo(x+ 20, y + 40)
+    ctx.lineTo(x, y + 40)
+    ctx.lineTo(x, y)
+    ctx.stroke();
+}

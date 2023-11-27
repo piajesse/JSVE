@@ -1,21 +1,32 @@
-var c = document.getElementById("test-canvas");
+var c = document.getElementById("display");
 var ctx = c.getContext("2d");
-document.addEventListener("keydown", function(event) {
-if (event.code === "ArrowLeft") {
-x -= 10;
-clearCanvas();
-draw();
-} else if (event.code === "ArrowRight") {
-x += 10;
-clearCanvas();
-draw();
-}
-});
+inputLeft = false;
+inputRight = false;
+inputUp = false;
+inputDown = false;
 
-function draw() {
-ctx.fillRect(x, 0, 50, 50);
-}
+window.addEventListener("onkeydown", keyDownListener, false);
 
-function clearCanvas() {
-ctx.clearRect(0, 0, c.width, c.height);
-}
+function keyDownListener(event) {
+    console.log("'" + event.code + "' was pressed")
+    if (event.code === "ArrowLeft") {
+        inputLeft = true;
+    } else if (event.code === "ArrowRight") {
+        inputRight = true;
+    } else if (event.code === "ArrowUp") {
+        inputUp = true;
+    }else if (event.code === "ArrowDown") {
+        inputDown = true;
+}}
+window.addEventListener("onkeyup", keyUpListener, false);
+
+function keyUpListener(event) {
+    if (event.code === "ArrowLeft") {
+        inputLeft = false;
+    } else if (event.code === "ArrowRight") {
+        inputRight = false;
+    } else if (event.code === "ArrowUp") {
+        inputUp = false;
+    }else if (event.code === "ArrowDown") {
+        inputDown = false;
+}}
